@@ -1,6 +1,9 @@
-// src/components/CardItem.js
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+
+
+
+
 
 export default function CardItem({ item, onPress }) {
   return (
@@ -76,4 +79,14 @@ const styles = StyleSheet.create({
     color: '#666',
     marginBottom: 8,
   }
+
+
 });
+
+
+
+
+
+
+
+

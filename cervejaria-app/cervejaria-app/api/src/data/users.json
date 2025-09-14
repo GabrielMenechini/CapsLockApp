@@ -1,0 +1,9 @@
+[
+  {
+    "id": "admin-1",
+    "name": "Administrador",
+    "email": "admin@cervejaria.com",
+    "passwordHash": "$2b$10$42Pd0HLrGffzUnkADmUc.uf9cgvO.NfPbY4nrcjipCv2z6MqEjXSW",
+    "role": "admin"
+  }
+]

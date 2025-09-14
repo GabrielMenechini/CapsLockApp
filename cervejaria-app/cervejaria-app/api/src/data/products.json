@@ -1,0 +1,86 @@
+[
+  {
+    "id": "p-1",
+    "name": "IPA da Casa",
+    "description": "IPA aromática, 6.5% ABV",
+    "price": 24.9,
+    "ingredients": [
+      "água",
+      "malte",
+      "lúpulo",
+      "levedura"
+    ],
+    "category": "Cervejas"
+  },
+  {
+    "id": "5e208bc7-26bd-4105-b604-b5093da7c7a1",
+    "name": "Pilsen Leve",
+    "description": "Pilsen refrescante",
+    "price": 17.9,
+    "ingredients": [
+      "água",
+      "malte",
+      "lúpulo"
+    ],
+    "category": "Cervejas"
+  },
+  {
+    "id": "5de64ee0-0a7f-4891-811c-98ce8c3c60af",
+    "name": "Pilsen Leve",
+    "description": "Pilsen refrescante",
+    "price": 17.9,
+    "ingredients": [
+      "água",
+      "malte",
+      "lúpulo"
+    ],
+    "category": "Cervejas"
+  },
+  {
+    "id": "a8622361-fa9d-48ee-aea0-489a0a7cbcb8",
+    "name": "Pilsen Leve",
+    "description": "Pilsen refrescante",
+    "price": 17.9,
+    "ingredients": [
+      "água",
+      "malte",
+      "lúpulo"
+    ],
+    "category": "Cervejas"
+  },
+  {
+    "id": "497c35a0-2dcd-4a2e-baaa-c3e15280065e",
+    "name": "Pilsen Leve",
+    "description": "Pilsen refrescante",
+    "price": 17.9,
+    "ingredients": [
+      "água",
+      "malte",
+      "lúpulo"
+    ],
+    "category": "Cervejas"
+  },
+  {
+    "id": "7331fcbc-b3ef-47df-87bb-03d827b23869",
+    "name": "Teste Taynara 1",
+    "description": "Teste",
+    "price": 432,
+    "ingredients": [
+      "311",
+      "43kfshj"
+    ],
+    "category": "teteste"
+  },
+  {
+    "id": "db2a5dbe-1198-4055-9fed-1732f3392da4",
+    "name": "Pilsen Leve",
+    "description": "Pilsen refrescante",
+    "price": 17.9,
+    "ingredients": [
+      "água",
+      "malte",
+      "lúpulo"
+    ],
+    "category": "Cervejas"
+  }
+]
