@@ -11,6 +11,7 @@ import Toast from "react-native-toast-message";
 import { useCart } from "../context/CartContext";
 import { toBRL } from "../services/format";
 import api from "../services/api";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function CartScreen() {
   const { items, removeOne, add, removeAll, clear, total } = useCart();
@@ -18,7 +19,7 @@ export default function CartScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Seu carrinho</Text>
-
+    <Ionicons name="cart-outline" size={24} color="#fff" style={{ marginRight: 12 }} />
       <FlatList
         data={items}
         keyExtractor={(it) => it.id}
@@ -32,6 +33,7 @@ export default function CartScreen() {
             )}
             <View style={{ flex: 1 }}>
               <Text style={styles.name}>{item.name}</Text>
+            
               <Text style={styles.price}>
                 {toBRL(item.price)} • qnt: {item.qty}
               </Text>

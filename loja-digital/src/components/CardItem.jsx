@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 
@@ -20,6 +21,7 @@ export default function CardItem({ item, onPress }) {
 
       <View style={styles.info}>
         <Text style={styles.nome}>{item.nome}</Text>
+         
         <Text style={styles.descricao} numberOfLines={2}>
           {item.descricao}
         </Text>
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 16,
     marginVertical: 8,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#356dfaff',
     borderRadius: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -63,11 +65,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 4,
+    
   },
   preco: {
     fontSize: 16,
-    color: '#333',
+    color: '#000000ff',
     marginTop: 4,
+    fontWeight: 'bold',
   },
   alergicos: {
     fontSize: 14,
@@ -76,8 +80,9 @@ const styles = StyleSheet.create({
   },
   descricao: {
     fontSize: 14,
-    color: '#666',
+    color: '#000000ff',
     marginBottom: 8,
+    fontWeight: 'bold',
   }
 
 

@@ -1,11 +1,14 @@
 import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function HomeScreen({navigation}) {
     const categorias = ['Mouses', 'Headsets', 'Teclados', 'Microfones'];
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Selecione a Categoria</Text>
+
+                
             {categorias.map((categoria, index) => (
                 <TouchableOpacity
                     key={index}
@@ -23,7 +26,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffffff',
     },
     title: {
         fontSize: 22,
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     button: {
-        backgroundColor: '#e5e5e5',
+        backgroundColor: '#356dfaff',
         padding: 20,
         borderRadius: 10,
         marginVertical: 10,

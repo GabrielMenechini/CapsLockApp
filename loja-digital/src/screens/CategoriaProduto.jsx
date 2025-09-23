@@ -31,7 +31,7 @@ export default function CategoriaProduto({ route }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{categoria}</Text>
-
+      
       <FlatList
         data={itens}
         keyExtractor={(item) => item.id.toString()}

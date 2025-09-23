@@ -2,9 +2,11 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { toBRL } from "../services/format";
 import { useCart } from "../context/CartContext"; // Adicione este import
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function ProductCard({ item, onPress }) {
   const { add } = useCart(); // Use o contexto do carrinho
+
 
   return (
     <View style={styles.card}>
@@ -20,6 +22,7 @@ export default function ProductCard({ item, onPress }) {
         onPress={onPress}
         style={{ paddingHorizontal: 14, paddingTop: 12 }}>
         <Text style={styles.title}>{item.name}</Text>
+      
         {!!item.description && (
           <Text style={styles.desc} numberOfLines={2}>
             {item.description}

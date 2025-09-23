@@ -5,8 +5,11 @@ import { TouchableOpacity, Text } from "react-native";
 import CartScreen from '../screens/CartScreen.jsx';
 import HomeScreen from "../screens/Home";
 import CategoriaProduto from "../screens/CategoriaProduto";
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 const Stack = createNativeStackNavigator();
+
 export function AppNavigation() {
   return (
     <NavigationContainer>
@@ -16,16 +19,22 @@ export function AppNavigation() {
           component={HomeScreen}
           options={({ navigation }) => ({
             title: "CapsLock",
+        
+
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Carrinho')}>
-                <Text style={{ color: "#fff", marginRight: 12 }}>Carrinho</Text>
+                
+               <Text style={{ color: "#000000ff", marginRight: 12, fontWeight: "bold", fontSize: 16}}> Carrinho</Text>
+              
               </TouchableOpacity>
             ),
           })}
         />
+        
         <Stack.Screen name="Carrinho" component={CartScreen} />
         <Stack.Screen
           name="Categoria"
+          
           component={CategoriaProduto}
           options={({ route }) => ({
             title: route.params.categoria.toUpperCase()

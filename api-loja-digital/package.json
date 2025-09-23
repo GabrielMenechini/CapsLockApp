@@ -1,5 +1,5 @@
 {
-  "name": "api-cardapio",
+  "name": "api-loja-digital",
   "version": "1.0.0",
   "main": "src/server.js",
   "type": "module",
