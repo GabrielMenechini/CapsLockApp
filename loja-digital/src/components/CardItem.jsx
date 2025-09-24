@@ -2,32 +2,41 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-
-
-
-
 export default function CardItem({ item, onPress }) {
   return (
     <TouchableOpacity
       onPress={onPress}
-      activeOpacity={0.7}
+      activeOpacity={0.8}
       style={styles.card}
-    > 
-      <Image
-        source={typeof item.imagem === 'string' ? 
-          { uri: item.imagem } : item.imagem}
-        style={styles.image}
-      />
+    >
+      <View style={styles.imageContainer}>
+        <Image
+          source={typeof item.imagem === 'string' ?
+            { uri: item.imagem } : item.imagem}
+          style={styles.image}
+        />
+        {item.disponibilidade === 'Esgotado' && (
+          <View style={styles.outOfStockBadge}>
+            <Text style={styles.outOfStockText}>ESGOTADO</Text>
+          </View>
+        )}
+      </View>
 
       <View style={styles.info}>
-        <Text style={styles.nome}>{item.nome}</Text>
-         
+        <Text style={styles.nome} numberOfLines={2}>{item.nome}</Text>
+
         <Text style={styles.descricao} numberOfLines={2}>
           {item.descricao}
         </Text>
-        <Text style={styles.preco}>
-          R$ {item.preco.toFixed(2)}
-        </Text>
+
+        <View style={styles.priceContainer}>
+          <Text style={styles.preco}>
+            R$ {item.preco.toFixed(2)}
+          </Text>
+          {item.disponibilidade === 'Esgotado' && (
+            <Text style={styles.unavailableText}>Indisponível</Text>
+          )}
+        </View>
 
         {item.alergenicos && item.alergenicos.length > 0 && (
           <Text style={styles.alergicos}>
@@ -41,51 +50,80 @@ export default function CardItem({ item, onPress }) {
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: 'row',
-    padding: 16,
-    marginVertical: 8,
-    backgroundColor: '#356dfaff',
-    borderRadius: 8,
+    backgroundColor: '#ffffff',
+    borderRadius: 12,
+    marginVertical: 6,
+    marginHorizontal: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2, // para sombra no Android
+    shadowRadius: 8,
+    elevation: 4,
+    borderWidth: 1,
+    borderColor: '#f0f0f0',
+    overflow: 'hidden',
+  },
+  imageContainer: {
+    position: 'relative',
+    backgroundColor: '#f8f9fa',
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 8,
-    marginRight: 16,
+    width: '100%',
+    height: 160,
+    resizeMode: 'contain',
+    backgroundColor: '#ffffff',
+  },
+  outOfStockBadge: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    backgroundColor: '#ff4444',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 4,
+  },
+  outOfStockText: {
+    color: '#ffffff',
+    fontSize: 10,
+    fontWeight: 'bold',
   },
   info: {
-    flex: 1,
+    padding: 16,
   },
   nome: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 4,
-    
-  },
-  preco: {
     fontSize: 16,
-    color: '#000000ff',
-    marginTop: 4,
-    fontWeight: 'bold',
-  },
-  alergicos: {
-    fontSize: 14,
-    color: 'red',
-    marginTop: 4,
+    fontWeight: '600',
+    color: '#2c3e50',
+    marginBottom: 8,
+    lineHeight: 20,
   },
   descricao: {
-    fontSize: 14,
-    color: '#000000ff',
-    marginBottom: 8,
+    fontSize: 13,
+    color: '#7f8c8d',
+    marginBottom: 12,
+    lineHeight: 18,
+  },
+  priceContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  preco: {
+    fontSize: 18,
     fontWeight: 'bold',
-  }
-
-
+    color: '#e74c3c',
+  },
+  unavailableText: {
+    fontSize: 12,
+    color: '#95a5a6',
+    fontStyle: 'italic',
+  },
+  alergicos: {
+    fontSize: 12,
+    color: '#e74c3c',
+    marginTop: 8,
+    fontWeight: '500',
+  },
 });
 
 

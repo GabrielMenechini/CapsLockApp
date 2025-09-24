@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   FlatList,
@@ -7,9 +7,10 @@ import {
   Modal,
   Image,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from "react-native";
-import { produtosMock } from "../data/produtosMock";
+import ProductService from "../services/productService";
 import CardItem from "../components/CardItem";
 
 export default function CategoriaProduto({ route }) {
@@ -17,31 +18,66 @@ export default function CategoriaProduto({ route }) {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [itens, setItens] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Carregar produtos quando o componente montar
+  useEffect(() => {
+    loadProducts();
+  }, [categoria]);
+
+  const loadProducts = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const products = await ProductService.getProductsByCategory(categoria);
+      setItens(products);
+    } catch (err) {
+      console.error('Erro ao carregar produtos:', err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleItemPress = (item) => {
     setSelectedItem(item);
     setModalVisible(true);
-    
   };
-
-  const itens = produtosMock.filter(
-    (produto) => produto.categoria === categoria
-  );
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{categoria}</Text>
-      
-      <FlatList
-        data={itens}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <CardItem
-            item={item}
-            onPress={() => handleItemPress(item)}
-          />
-        )}
-      />
+
+      {loading && (
+        <View style={styles.centerContainer}>
+          <ActivityIndicator size="large" color="#356dfaff" />
+          <Text style={styles.loadingText}>Carregando produtos...</Text>
+        </View>
+      )}
+
+      {error && (
+        <View style={styles.centerContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+          <TouchableOpacity style={styles.retryButton} onPress={loadProducts}>
+            <Text style={styles.retryButtonText}>Tentar Novamente</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {!loading && !error && (
+        <FlatList
+          data={itens}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <CardItem
+              item={item}
+              onPress={() => handleItemPress(item)}
+            />
+          )}
+        />
+      )}
 
       {/* Modal de detalhes */}
       <Modal
@@ -140,50 +176,104 @@ export default function CategoriaProduto({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: "#fff",
+    backgroundColor: "#f8f9fa",
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 16,
+    marginBottom: 8,
+    color: "#2c3e50",
+    textAlign: "center",
+    paddingTop: 50,
+    paddingHorizontal: 20,
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,0.6)",
     justifyContent: "center",
     padding: 20,
   },
   modalContent: {
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    padding: 16,
+    backgroundColor: "#ffffff",
+    borderRadius: 20,
+    padding: 0,
     maxHeight: "90%",
+    overflow: "hidden",
   },
   modalImage: {
     width: "100%",
-    height: 200,
-    borderRadius: 8,
-    marginBottom: 16,
+    height: 250,
+    resizeMode: "contain",
+    backgroundColor: "#f8f9fa",
   },
   modalTitle: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 12,
+    color: "#2c3e50",
+    paddingHorizontal: 20,
+    paddingTop: 20,
   },
   modalPreco: {
+    fontSize: 28,
     fontWeight: "bold",
-    marginVertical: 8,
+    color: "#e74c3c",
+    marginVertical: 12,
+    paddingHorizontal: 20,
   },
   closeButton: {
-    marginTop: 20,
-    backgroundColor: "#2196F3",
-    padding: 10,
-    borderRadius: 6,
+    marginTop: 24,
+    marginBottom: 20,
+    marginHorizontal: 20,
+    backgroundColor: "#e74c3c",
+    padding: 16,
+    borderRadius: 12,
     alignItems: "center",
+    shadowColor: "#e74c3c",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
   },
   closeButtonText: {
-    color: "#fff",
+    color: "#ffffff",
     fontWeight: "bold",
+    fontSize: 16,
+  },
+  centerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 40,
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: '#7f8c8d',
+    fontWeight: '500',
+  },
+  errorText: {
+    fontSize: 16,
+    color: '#e74c3c',
+    textAlign: 'center',
+    marginBottom: 24,
+    lineHeight: 24,
+  },
+  retryButton: {
+    backgroundColor: '#3498db',
+    padding: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+    minWidth: 140,
+    shadowColor: '#3498db',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  retryButtonText: {
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
