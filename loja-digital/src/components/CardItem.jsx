@@ -1,8 +1,22 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useCart } from '../context/CartContext';
 
 export default function CardItem({ item, onPress }) {
+  const { add } = useCart();
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      id: item.id,
+      name: item.nome,
+      price: item.preco,
+      imageUrl: item.imagem,
+      qty: 1
+    };
+    add(cartItem, 1);
+  };
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -43,6 +57,16 @@ export default function CardItem({ item, onPress }) {
             Alérgenos: {item.alergenicos.join(', ')}
           </Text>
         )}
+
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={handleAddToCart}
+          disabled={item.disponibilidade === 'Esgotado'}
+        >
+          <Text style={styles.addButtonText}>
+            {item.disponibilidade === 'Esgotado' ? 'Indisponível' : 'Adicionar ao carrinho'}
+          </Text>
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
@@ -66,12 +90,15 @@ const styles = StyleSheet.create({
   imageContainer: {
     position: 'relative',
     backgroundColor: '#f8f9fa',
+    alignItems: 'flex-start',
+    padding: 8,
   },
   image: {
-    width: '100%',
-    height: 160,
+    width: 120,
+    height: 120,
     resizeMode: 'contain',
     backgroundColor: '#ffffff',
+    marginBottom: 8,
   },
   outOfStockBadge: {
     position: 'absolute',
@@ -123,6 +150,18 @@ const styles = StyleSheet.create({
     color: '#e74c3c',
     marginTop: 8,
     fontWeight: '500',
+  },
+  addButton: {
+    marginTop: 12,
+    backgroundColor: '#e74c3c',
+    paddingVertical: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  addButtonText: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 16,
   },
 });
 

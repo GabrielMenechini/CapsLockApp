@@ -4,83 +4,134 @@
     "name": "Mouse Gamer Redragon Cobra",
     "price": 129.90,
     "sku": "MOU-001",
-    "description": "Mouse gamer com 7 botões programáveis e RGB"
+    "description": "Mouse gamer com 7 botões programáveis e RGB",
+    "image": "http://localhost:3333/images/Mouse Gamer Redragon Cobra.png",
+    "modelo": "Cobra",
+    "conexao": "USB",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 2,
     "name": "Mouse Logitech G502",
     "price": 299.90,
     "sku": "MOU-002",
-    "description": "Mouse profissional com sensor HERO 25K"
+    "description": "Mouse profissional com sensor HERO 25K",
+    "image": "http://localhost:3333/images/Mouse Logitech G502.png",
+    "modelo": "G502",
+    "conexao": "USB",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 3,
     "name": "Headset Gamer Redragon Zeus",
     "price": 399.90,
     "sku": "HDS-001",
-    "description": "Headset surround 7.1 com microfone destacável"
+    "description": "Headset surround 7.1 com microfone destacável",
+    "modelo": "Zeus",
+    "conexao": "Com Fio",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 4,
     "name": "Headset HyperX Cloud II",
     "price": 449.90,
     "sku": "HDS-002",
-    "description": "Headset profissional com som surround virtual"
+    "description": "Headset profissional com som surround virtual",
+    "modelo": "Cloud II",
+    "conexao": "Com Fio",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 5,
     "name": "Monitor Gamer AOC 24G2",
     "price": 899.90,
     "sku": "MON-001",
-    "description": "Monitor 24\" Full HD 144Hz com tecnologia IPS"
+    "description": "Monitor 24\" Full HD 144Hz com tecnologia IPS",
+    "modelo": "24G2",
+    "conexao": "HDMI, DisplayPort",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 6,
     "name": "Monitor Samsung Odyssey G5",
     "price": 1599.90,
     "sku": "MON-002",
-    "description": "Monitor curvo 27\" WQHD 144Hz com FreeSync Premium"
+    "description": "Monitor curvo 27\" WQHD 144Hz com FreeSync Premium",
+    "modelo": "Odyssey G5",
+    "conexao": "HDMI, DisplayPort",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 7,
     "name": "Microfone Gamer Fifine Ampligame",
     "price": 229.90,
     "sku": "MIC-001",
-    "description": "Microfone condensador com padrão cardioide"
+    "description": "Microfone condensador com padrão cardioide",
+    "modelo": "Ampligame",
+    "conexao": "USB",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 8,
     "name": "Microfone Blue Yeti",
     "price": 899.90,
     "sku": "MIC-002",
-    "description": "Microfone profissional com múltiplos padrões"
+    "description": "Microfone profissional com múltiplos padrões",
+    "modelo": "Yeti",
+    "conexao": "USB",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 9,
     "name": "Mousepad Gamer Redragon",
     "price": 79.90,
     "sku": "PAD-001",
-    "description": "Mousepad grande com superfície otimizada"
+    "description": "Mousepad grande com superfície otimizada",
+    "image": "http://localhost:3333/images/Mousepad Gamer Redragon.png",
+    "modelo": "Redragon",
+    "conexao": "Sem conexão",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 10,
     "name": "Webcam Logitech C920",
     "price": 349.90,
     "sku": "CAM-001",
-    "description": "Webcam Full HD 1080p com microfone integrado"
+    "description": "Webcam Full HD 1080p com microfone integrado",
+    "modelo": "C920",
+    "conexao": "USB",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 11,
     "name": "Monitor LG UltraGear 27GN800",
     "price": 1899.90,
     "sku": "MON-003",
-    "description": "Monitor 27\" QHD 144Hz Nano IPS com G-Sync Compatible"
+    "description": "Monitor 27\" QHD 144Hz Nano IPS com G-Sync Compatible",
+    "modelo": "27GN800",
+    "conexao": "HDMI, DisplayPort",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   },
   {
     "id": 12,
     "name": "Monitor BenQ Zowie XL2411P",
     "price": 1299.90,
     "sku": "MON-004",
-    "description": "Monitor 24\" Full HD 144Hz para eSports com tempo de resposta 1ms"
+    "description": "Monitor 24\" Full HD 144Hz para eSports com tempo de resposta 1ms",
+    "modelo": "XL2411P",
+    "conexao": "HDMI, DisplayPort",
+    "cor": "Preto",
+    "disponibilidade": "Disponível"
   }
 ]

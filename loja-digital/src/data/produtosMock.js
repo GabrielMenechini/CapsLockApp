@@ -1,4 +1,3 @@
-
 export const produtosMock = [
     {
         id: 1,
@@ -49,15 +48,14 @@ export const produtosMock = [
 
     {
         id: 4,
-        nome: "Mouse",
-        descricao: "Headset Gamer Redragon H510 Zeus X RGB 7.1 Surround",
-        preco: 299.00,
+        nome: "Mouse Gamer Redragon Cobra",
+        descricao: "Mouse Gamer Redragon Cobra RGB 10000 DPI",
+        preco: 199.00,
         categoria: "Mouses",
         tipo: 'Gamer',
-        tamanho: 'Copo',
-        disponibilidade: "Disponível",      
+        disponibilidade: "Disponível",
         marca: 'Redragon',
-
+        imagem: require('../assets/images/Mouse Gamer Redragon Cobra.png')
     },
 
       {
@@ -75,5 +73,15 @@ export const produtosMock = [
         cor: 'Branco',
         conexao: 'Com Fio', 
     },
-   
-    ];
+    {
+        id: 6,
+        nome: "Mousepad Redragon",
+        descricao: "Mousepad Gamer Redragon Archeon com base antiderrapante",
+        preco: 79.00,
+        categoria: "Mousepads",
+        tipo: "Gamer",
+        disponibilidade: "Disponível",
+        marca: "Redragon",
+        imagem: require('../assets/images/Mousepad Gamer Redragon.png')
+    }
+];

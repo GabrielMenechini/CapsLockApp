@@ -98,6 +98,7 @@ export default function CategoriaProduto({ route }) {
                         : selectedItem.imagem
                     }
                     style={styles.modalImage}
+                    resizeMode="contain"
                   />
                   <Text style={styles.modalTitle}>{selectedItem.nome}</Text>
                   <Text>{selectedItem.descricao}</Text>
@@ -201,10 +202,13 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   modalImage: {
-    width: "100%",
-    height: 250,
+    width: 150,
+    height: 150,
     resizeMode: "contain",
     backgroundColor: "#f8f9fa",
+    alignSelf: "flex-start",
+    marginLeft: 20,
+    marginBottom: 20,
   },
   modalTitle: {
     fontSize: 24,

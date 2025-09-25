@@ -94,11 +94,12 @@ class ProductService {
       // Campos adicionais que podem ser necessários
       sku: apiProduct.sku,
       // Adicionar campos padrão se não existirem na API
-      disponibilidade: 'Disponível',
-      tipo: 'Produto',
-      conexao: 'Não informado',
-      cor: 'Não informado',
-      marca: 'Não informado'
+      modelo: apiProduct.modelo || 'Não informado',
+      conexao: apiProduct.conexao || 'Não informado',
+      cor: apiProduct.cor || 'Não informado',
+      disponibilidade: apiProduct.disponibilidade || 'Disponível',
+      
+      imagem: apiProduct.image || null
     };
   }
 
